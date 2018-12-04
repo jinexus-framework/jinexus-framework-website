@@ -322,6 +322,147 @@
                 </pre>
             </figure>
 
+            <h4>Cookie Data</h4>
+            <p>The <span class="gi">getCookie()</span> method returns a parameter collection containing cookie data.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">namespace</span> <span class="o">namespace Application\Controller</span><span class="m">;</span>
+
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Controller\AbstractController</span><span class="m">;</span>
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Model\ViewModel</span><span class="m">;</span>
+
+    <span class="no"><i>/**</i></span>
+    <span class="no"><i> * Class IndexController</i></span>
+    <span class="no"><i> * <u>@package</u> Application\Controller</i></span>
+    <span class="no"><i> */</i></span>
+    <span class="m">class</span> <span class="o">IndexController</span> <span class="m">extends</span> <span class="o">AbstractController</span>
+    <span class="o">{</span>
+        <span class="no"><i>/**</i></span>
+        <span class="no"><i> * <u>@return</u> ViewModel</i></span>
+        <span class="no"><i> */</i></span>
+        <span class="m">public function</span> <span class="ss">indexAction</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="ni">// Get all the available object oriented interface of global variables</span>
+            <span class="nd">$request</span> <span class="o">=</span> <span class="nd">$this</span><span class="o">-></span><span class="nd">http</span><span class="o">-></span><span class="ss">getRequest</span><span class="o">()</span><span class="m">;</span>
+            <span class="ni">// Returns a parameter collection containing cookie data</span>
+            <span class="nd">$cookie</span> <span class="o">=</span> <span class="nd">$request</span><span class="o">-></span><span class="ss">getCookie</span><span class="o">()</span><span class="m">;</span>
+
+            <span class="ni">// Pass a variable to the view</span>
+            <span class="m">return new</span> <span class="o">ViewModel([</span>
+                <span class="no">'helloWorld'</span> <span class="o">=></span> <span class="no">'Hello World!'</span>
+            <span class="o">])</span><span class="m">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    </code>
+                </pre>
+            </figure>
+
+            <p>The <span class="gi">get()</span> method of the parameter collection returns the value of a parameter and null if it doesn't exist.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+        <span class="ni">// Return the value of a parameter and null if the key doesn't exist</span>
+        <span class="nd">$data</span> <span class="o">=</span> <span class="nd">$cookie</span><span class="o">-></span><span class="ss">get</span><span class="o">(</span><span class="no">'foo'</span><span class="o">)</span><span class="m">;</span>
+
+        <span class="ni">// You can also specify a custom default return value if the key doesn't exist using the second parameter</span>
+        <span class="nd">$data</span> <span class="o">=</span> <span class="nd">$cookie</span><span class="o">-></span><span class="ss">get</span><span class="o">(</span><span class="no">'foo'</span><span class="m">, </span><span class="no">'bar'</span><span class="o">)</span><span class="m">;</span>
+    </code>
+                </pre>
+            </figure>
+
+            <h4>File Data</h4>
+            <p>The <span class="gi">getFile()</span> method returns a parameter collection containing file data.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">namespace</span> <span class="o">namespace Application\Controller</span><span class="m">;</span>
+
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Controller\AbstractController</span><span class="m">;</span>
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Model\ViewModel</span><span class="m">;</span>
+
+    <span class="no"><i>/**</i></span>
+    <span class="no"><i> * Class IndexController</i></span>
+    <span class="no"><i> * <u>@package</u> Application\Controller</i></span>
+    <span class="no"><i> */</i></span>
+    <span class="m">class</span> <span class="o">IndexController</span> <span class="m">extends</span> <span class="o">AbstractController</span>
+    <span class="o">{</span>
+        <span class="no"><i>/**</i></span>
+        <span class="no"><i> * <u>@return</u> ViewModel</i></span>
+        <span class="no"><i> */</i></span>
+        <span class="m">public function</span> <span class="ss">indexAction</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="ni">// Get all the available object oriented interface of global variables</span>
+            <span class="nd">$request</span> <span class="o">=</span> <span class="nd">$this</span><span class="o">-></span><span class="nd">http</span><span class="o">-></span><span class="ss">getRequest</span><span class="o">()</span><span class="m">;</span>
+            <span class="ni">// Returns a parameter collection containing file data</span>
+            <span class="nd">$file</span> <span class="o">=</span> <span class="nd">$request</span><span class="o">-></span><span class="ss">getFile</span><span class="o">()</span><span class="m">;</span>
+
+            <span class="ni">// Pass a variable to the view</span>
+            <span class="m">return new</span> <span class="o">ViewModel([</span>
+                <span class="no">'helloWorld'</span> <span class="o">=></span> <span class="no">'Hello World!'</span>
+            <span class="o">])</span><span class="m">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    </code>
+                </pre>
+            </figure>
+
+            <p>The <span class="gi">get()</span> method of the parameter collection returns the value of a parameter and null if it doesn't exist.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+        <span class="ni">// Return the value of a parameter and null if the key doesn't exist</span>
+        <span class="nd">$data</span> <span class="o">=</span> <span class="nd">$file</span><span class="o">-></span><span class="ss">get</span><span class="o">(</span><span class="no">'foo'</span><span class="o">)</span><span class="m">;</span>
+    </code>
+                </pre>
+            </figure>
+
+            <h4>Server Data</h4>
+            <p>The <span class="gi">getServer()</span> method returns a parameter collection containing server data.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">namespace</span> <span class="o">namespace Application\Controller</span><span class="m">;</span>
+
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Controller\AbstractController</span><span class="m">;</span>
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Model\ViewModel</span><span class="m">;</span>
+
+    <span class="no"><i>/**</i></span>
+    <span class="no"><i> * Class IndexController</i></span>
+    <span class="no"><i> * <u>@package</u> Application\Controller</i></span>
+    <span class="no"><i> */</i></span>
+    <span class="m">class</span> <span class="o">IndexController</span> <span class="m">extends</span> <span class="o">AbstractController</span>
+    <span class="o">{</span>
+        <span class="no"><i>/**</i></span>
+        <span class="no"><i> * <u>@return</u> ViewModel</i></span>
+        <span class="no"><i> */</i></span>
+        <span class="m">public function</span> <span class="ss">indexAction</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="ni">// Get all the available object oriented interface of global variables</span>
+            <span class="nd">$request</span> <span class="o">=</span> <span class="nd">$this</span><span class="o">-></span><span class="nd">http</span><span class="o">-></span><span class="ss">getRequest</span><span class="o">()</span><span class="m">;</span>
+            <span class="ni">// Returns a parameter collection containing server data</span>
+            <span class="nd">$server</span> <span class="o">=</span> <span class="nd">$request</span><span class="o">-></span><span class="ss">getServer</span><span class="o">()</span><span class="m">;</span>
+
+            <span class="ni">// Pass a variable to the view</span>
+            <span class="m">return new</span> <span class="o">ViewModel([</span>
+                <span class="no">'helloWorld'</span> <span class="o">=></span> <span class="no">'Hello World!'</span>
+            <span class="o">])</span><span class="m">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    </code>
+                </pre>
+            </figure>
+
+            <p>The <span class="gi">get()</span> method of the parameter collection returns the value of a parameter and null if it doesn't exist.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+        <span class="ni">// Return the value of a parameter and null if the key doesn't exist</span>
+        <span class="nd">$data</span> <span class="o">=</span> <span class="nd">$server</span><span class="o">-></span><span class="ss">get</span><span class="o">(</span><span class="no">'foo'</span><span class="o">)</span><span class="m">;</span>
+    </code>
+                </pre>
+            </figure>
+
             <h2>View</h2>
 
             <h2>Config</h2>
