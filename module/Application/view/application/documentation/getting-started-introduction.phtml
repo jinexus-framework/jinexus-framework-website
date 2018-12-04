@@ -1,0 +1,102 @@
+<main class="bd-masthead keep-calm-and-code-on" id="content" role="main">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-12 mx-auto my-5">
+                <h1 class="mb-3 text-light text-center text-shadow">Documentation</h1>
+            </div>
+        </div>
+    </div>
+    <div class="cover-scrollspy"><i class="fas fa-chevron-down"></i></div>
+</main>
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <?php echo $this->render('layout/partial/main-sidebar'); ?>
+        <div class="d-none d-xl-block col-xl-2 bd-toc">
+            <ul class="section-nav">
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>#quick-start">Quick Start</a></li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>#release-and-development">Release and Development</a></li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>#components">Components</a>
+                    <ul>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>#skeleton">Skeleton</a></li>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>#module-manager">Module Manager</a></li>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>#config">Config</a></li>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>#route">Route</a></li>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>#http">HTTP</a></li>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>#mvc">MVC</a></li>
+                    </ul>
+                </li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>#community">Community</a></li>
+            </ul>
+        </div>
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="bd-title" id="content">Introduction</h1>
+            <p class="bd-lead">
+                Get started with JiNexus Framework, a modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework that you will ever use.
+            </p>
+
+            <h2 id="quick-start">Quick start</h2>
+            <p>
+                This documentation will guide you throughout the process of how easy and swift you can create your own application using JiNexus Framework.
+                This includes from setting up your modules, to your configs, adding your routes, and dispatching your controllers, models and views.
+            </p>
+
+            <h2 id="release-and-development">Release and Development</h2>
+            <p>
+                JiNexus Framework is under active development. If you are interested in following the development of this project, you may check its GitHub repositories.
+                This is a great resource for staying up to date with the latest developments!
+                <a href="https://github.com/jinexus-framework">Head to the GitHub page.</a>
+            </p>
+
+            <h2 id="components">Components</h2>
+            <p>
+                These are the list of components that made JiNexus Framework possible.
+            </p>
+
+            <h3 id="skeleton">Skeleton</h3>
+            <p>
+                JiNexus Framework Skeleton for jinexus-mvc projects.
+                <a href="https://github.com/jinexus-framework/jinexus-framework-skeleton">Head to the GitHub page.</a>
+            </p>
+
+            <h3 id="module-manager">Module Manager</h3>
+            <p>
+                Module Manager component from JiNexus Framework.
+                <a href="https://github.com/jinexus-framework/jinexus-module-manager">Head to the GitHub page.</a>
+            </p>
+
+            <h3 id="config">Config</h3>
+            <p>
+                Config component from JiNexus Framework.
+                <a href="https://github.com/jinexus-framework/jinexus-config">Head to the GitHub page.</a>
+            </p>
+
+            <h3 id="route">Route</h3>
+            <p>
+                Route component from JiNexus Framework.
+                <a href="https://github.com/jinexus-framework/jinexus-route">Head to the GitHub page.</a>
+            </p>
+
+            <h3 id="http">HTTP</h3>
+            <p>
+                HTTP component from JiNexus Framework.
+                <a href="https://github.com/jinexus-framework/jinexus-http">Head to the GitHub page.</a>
+            </p>
+
+            <h3 id="mvc">MVC</h3>
+            <p>
+                MVC component from JiNexus Framework.
+                <a href="https://github.com/jinexus-framework/jinexus-mvc">Head to the GitHub page.</a>
+            </p>
+
+            <h2 id="community">Community</h2>
+            <p>Stay up to date on the development of JiNexus Framework and reach out to the community with these helpful resources.</p>
+
+            <ul>
+                <li>Follow <a href="https://twitter.com/JiNexus" target="_blank">@JiNexus on Twitter</a>.</li>
+                <li>Read and subscribe soon to <a href="#" target="_blank">The Official JiNexus Framework Blog</a>.</li>
+                <li>Join <a href="#" target="_blank">the official Slack room</a>.</li>
+                <li>My <a href="http://cv.jinexus.com" target="_blank">Curriculum Vitae</a>.</li>
+            </ul>
+        </main>
+    </div>
+</div>

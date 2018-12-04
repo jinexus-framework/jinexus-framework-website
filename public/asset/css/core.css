@@ -1,0 +1,128 @@
+html, body {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+body{
+    padding-top: 3.5rem;
+}
+
+.box-shadow {
+    box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+}
+
+.btn {
+    white-space: normal;
+}
+
+.text-shadow {
+    text-shadow: 0 0 5px #6d6e70;
+}
+
+.black-and-white-keep-calm {
+    background: transparent url('../img/cover-photo/black-and-white-keep-calm.jpg') no-repeat center bottom fixed;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cebu-fuente-circle {
+    background: transparent url('../img/cover-photo/cebu-fuente-circle.jpg') no-repeat center 20% fixed;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.code-in-the-dark {
+    background: transparent url('../img/cover-photo/code-in-the-dark.jpg') no-repeat center bottom fixed;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.code-on-laptop {
+    background: transparent url('../img/cover-photo/code-on-laptop.jpeg') no-repeat center bottom fixed;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.flat-desktop {
+    background: transparent url('../img/cover-photo/flat-desktop.png') no-repeat center bottom fixed;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keep-calm-and-code-on {
+    background: transparent url('../img/cover-photo/keep-calm-and-code-on.jpg') no-repeat center bottom fixed;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.keep-glass-and-code {
+    background: transparent url('../img/cover-photo/keep-glass-and-code.jpeg') no-repeat center bottom fixed;
+    background-size: cover;
+    min-height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.img-border {
+    border: 2px solid #f8f9fa;
+    width: 250px;
+    height: auto;
+}
+
+.icon-link {
+    font-size: 32px;
+}
+
+.jf-search {
+    position: relative;
+    padding: 1rem 15px;
+    margin-right: -15px;
+    margin-left: -15px;
+    border-bottom: 1px solid rgba(0, 0, 0, .05);
+}
+
+.bd-sidebar {
+    border-bottom: none;
+}
+
+.cover-scrollspy {
+    cursor: pointer;
+    height: 58px;
+    width: 58px;
+    background-color: #4882C3;
+    position: absolute;
+    z-index: 10;
+    margin-top: 500px;
+    border-radius: 50px;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.language-php::before {
+    color:#f60;
+    content:"<?php ";
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none
+}

@@ -1,0 +1,90 @@
+<main class="bd-masthead keep-calm-and-code-on" id="content" role="main">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-12 mx-auto my-5">
+                <h1 class="mb-3 text-light text-center text-shadow">Documentation</h1>
+            </div>
+        </div>
+    </div>
+    <div class="cover-scrollspy"><i class="fas fa-chevron-down"></i></div>
+</main>
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <?php echo $this->render('layout/partial/main-sidebar'); ?>
+        <div class="d-none d-xl-block col-xl-2 bd-toc">
+            <ul class="section-nav">
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#system-requirements">System Requirements</a></li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#setup">Setup</a></li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#start-web-server">Start a Web Server</a></li>
+                <ul>
+                    <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#using-composer">Using Composer</a></li>
+                    <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#using-php">Using PHP</a></li>
+                </ul>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#app-overview">App Overview</a></li>
+            </ul>
+        </div>
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="bd-title" id="content">Installation</h1>
+            <p class="bd-lead">
+                JiNexus Framework's installation is very easy and straight forward—just follow the steps below.
+            </p>
+
+            <h2 id="system-requirements">System Requirements</h2>
+            <p>
+                JiNexus Framework 1.x.x requires:
+            </p>
+            <ul>
+                <li>PHP 5.6 or later</li>
+                <li>Mod_Rewrite</li>
+                <li>Mbstring</li>
+            </ul>
+
+            <h2 id="setup">Setup</h2>
+            <p>
+                To create your new JiNexus Framework application, first make sure you're using PHP 5.6 or later and have <a href="https://getcomposer.org/">Composer</a> installed.
+                You may also check how to install composer in their <a href="https://getcomposer.org/download/">documentation</a>.
+            </p>
+            <p>All you have to do—to create your new JiNexus Framework project is to run this one single line command:</p>
+            <figure class="highlight">
+                <pre><code class="language-sh" data-lang="sh">composer create-project jinexus-framework/jinexus-framework-skeleton path/to/my-project</code></pre>
+            </figure>
+            <p>
+                This will create a new my-project directory, download some dependencies into it and even generate the basic directories and files you'll need to get started.
+                In other words, your new app is ready!
+            </p>
+            <p>Next you'll have to make project directories writable (command may vary depending on your system):</p>
+            <figure class="highlight">
+                <pre><code class="language-sh" data-lang="sh">chown -R www-data:www-data path/to/my-project</code></pre>
+            </figure>
+            <figure class="highlight">
+                <pre><code class="language-sh" data-lang="sh">chmod -R g+rwX path/to/my-project</code></pre>
+            </figure>
+
+            <h2 id="start-web-server">Start a Web Server</h2>
+            <p>
+                The Skeleton creates a full application structure that's ready-to-go when complete. You can test it out using <a href="http://php.net/manual/en/features.commandline.webserver.php">built-in web server</a>.
+            </p>
+            <p>
+                From the project root directory, execute the following:
+            </p>
+
+            <h3 id="using-composer">Using Composer</h3>
+            <figure class="highlight">
+                <pre><code class="language-sh" data-lang="sh">composer run --timeout=0 serve</code></pre>
+            </figure>
+            <p>
+                This starts up a web server on localhost port 8080; browse to http://localhost:8080/ to see if your application responds correctly!
+            </p>
+            <h3 id="using-php">Using PHP</h3>
+            <figure class="highlight">
+                <pre><code class="language-sh" data-lang="sh">php -S localhost:8000</code></pre>
+            </figure>
+            <p>
+                This starts up a web server on localhost port 8000; browse to http://localhost:8000/ to see if your application responds correctly!
+            </p>
+
+            <h2 id="app-overview">App Overview</h2>
+            <img src="<?php echo $this->basePath('asset/img/app-overview.png'); ?>" class="img-fluid img-thumbnail rounded mx-auto d-block" alt="App Overview">
+        </main>
+    </div>
+</div>

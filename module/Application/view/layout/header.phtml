@@ -1,0 +1,48 @@
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="<?php echo $this->url('application.home'); ?>">
+                <img src="<?php echo $this->basePath('asset/img/jf-logo-32x32.png'); ?>" width="32" height="32" class="d-inline-block align-top" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-main-content" aria-controls="navbar-main-content" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbar-main-content">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="<?php echo $this->url('application.home'); ?>" aria-label="Home">Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>" aria-label="Documentation">Documentation</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="<?php echo $this->url('application.changelog'); ?>" aria-label="Changelog">Changelog</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="javascript:void(0);" id="navbar-dropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            About
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbar-dropdown">
+                            <a class="dropdown-item" href="<?php echo $this->url('application.about.author'); ?>">Author</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="<?php echo $this->url('application.about.conduct'); ?>">Conduct</a>
+                            <a class="dropdown-item" href="<?php echo $this->url('application.about.credits'); ?>">Credits</a>
+                            <a class="dropdown-item" href="<?php echo $this->url('application.about.license'); ?>">License</a>
+                        </div>
+                    </li>
+                </ul>
+                <ul class="navbar-nav ml-auto ">
+                    <li class="nav-item">
+                        <a class="nav-link" href="javascript:void(0);" rel="noopener" aria-label="Version 1.0.0">Version 1.0.0</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="https://github.com/jinexus-framework" target="_blank" rel="noopener" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                    </li>
+                    <li class="nav-item">
+                        <a href="https://github.com/jinexus-framework/jinexus-framework-skeleton/archive/master.zip" class="btn btn-outline-info" role="button">Download</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
