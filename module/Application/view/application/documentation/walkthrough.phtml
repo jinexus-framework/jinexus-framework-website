@@ -463,6 +463,76 @@
                 </pre>
             </figure>
 
+            <h4>Parameter Methods</h4>
+            <p>These are the list of parameter methods that can be use from request.</p>
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row"><span class="ss">count()</span></td>
+                        <td>Return the count of all parameter</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">add()</span></td>
+                        <td>Adds a parameter</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">has()</span></td>
+                        <td>Returns true if the parameter exists and false if not</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">get()</span></td>
+                        <td>Gets a parameter value</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">remove()</span></td>
+                        <td>Removes a parameter</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">all()</span></td>
+                        <td>Returns all the parameter</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">getIterator()</span></td>
+                        <td>Returns an array iterator object</td>
+                    </tr>
+                </tbody>
+            </table>
+
+
+            <h4>Request Data</h4>
+            <p>The <span class="gi">isAjax()</span> method returns true if the request was made using AJAX and false if not.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+        <span class="nd">$isAjax</span> <span class="o">=</span> <span class="nd">$this</span><span class="o">-></span><span class="nd">request</span><span class="o">-></span><span class="ss">isAjax</span><span class="o">()</span><span class="m">;</span>
+    </code>
+                </pre>
+            </figure>
+
+            <p>The <span class="gi">isSecure()</span> method returns true if the request was made using HTTPS and false if not.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+        <span class="nd">$isSecure</span> <span class="o">=</span> <span class="nd">$this</span><span class="o">-></span><span class="nd">request</span><span class="o">-></span><span class="ss">isSecure</span><span class="o">()</span><span class="m">;</span>
+    </code>
+                </pre>
+            </figure>
+
+            <p>The <span class="gi">baseUrl()</span> method returns the base URL of the request.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+        <span class="nd">$baseUrl</span> <span class="o">=</span> <span class="nd">$this</span><span class="o">-></span><span class="nd">request</span><span class="o">-></span><span class="ss">baseUrl</span><span class="o">()</span><span class="m">;</span>
+    </code>
+                </pre>
+            </figure>
+
             <h2>View</h2>
 
             <h2>Config</h2>
