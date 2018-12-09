@@ -1,0 +1,66 @@
+<main class="bd-masthead keep-calm-and-code-on" id="content" role="main">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-12 mx-auto my-5">
+                <h1 class="mb-3 text-light text-center text-shadow">Documentation</h1>
+            </div>
+        </div>
+    </div>
+    <div class="cover-scrollspy"><i class="fas fa-chevron-down"></i></div>
+</main>
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <?php echo $this->render('application/documentation/partial/main-sidebar'); ?>
+        <div class="d-none d-xl-block col-xl-2 bd-toc">
+            <ul class="section-nav">
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.controller'); ?>#basic-example-of-controller">Basic Example of Controller</a></li>
+            </ul>
+        </div>
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="bd-title" id="content">Controller</h1>
+            <p class="bd-lead">
+                Controller is a main entry of a page, after routing.
+            </p>
+
+            <h2 id="basic-example-of-controller">Basic Example of Controller</h2>
+            <p>Here's a basic example of controller that extends the base controller that's included in the framework.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">namespace</span> <span class="o">namespace Application\Controller</span><span class="m">;</span>
+
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Controller\AbstractController</span><span class="m">;</span>
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Model\ViewModel</span><span class="m">;</span>
+
+    <span class="no"><i>/**</i></span>
+    <span class="no"><i> * Class IndexController</i></span>
+    <span class="no"><i> * <u>@package</u> Application\Controller</i></span>
+    <span class="no"><i> */</i></span>
+    <span class="m">class</span> <span class="o">IndexController</span> <span class="m">extends</span> <span class="o">AbstractController</span>
+    <span class="o">{</span>
+        <span class="no"><i>/**</i></span>
+        <span class="no"><i> * <u>@return</u> ViewModel</i></span>
+        <span class="no"><i> */</i></span>
+        <span class="m">public function</span> <span class="ss">indexAction</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="ni">// Pass a variable to the view</span>
+            <span class="m">return new</span> <span class="o">ViewModel([</span>
+                <span class="no">'foobar'</span> <span class="o">=></span> <span class="no">'Hello World!'</span>
+            <span class="o">])</span><span class="m">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    </code>
+                </pre>
+            </figure>
+
+            <div class="alert alert-info" role="alert">
+                <h5 class="alert-heading">Important Note!</h5>
+                <p>
+                    Method names should have a suffix of a word "Action" to match it and dispatch.
+                </p>
+            </div>
+
+            <?php echo $this->render('application/documentation/partial/note'); ?>
+        </main>
+    </div>
+</div>

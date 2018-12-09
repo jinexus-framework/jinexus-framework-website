@@ -1,0 +1,101 @@
+<main class="bd-masthead keep-calm-and-code-on" id="content" role="main">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-12 mx-auto my-5">
+                <h1 class="mb-3 text-light text-center text-shadow">Documentation</h1>
+            </div>
+        </div>
+    </div>
+    <div class="cover-scrollspy"><i class="fas fa-chevron-down"></i></div>
+</main>
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <?php echo $this->render('application/documentation/partial/main-sidebar'); ?>
+        <div class="d-none d-xl-block col-xl-2 bd-toc">
+            <ul class="section-nav">
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.config'); ?>#config-files">Config Files</a></li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.config'); ?>#environment-config">Environment Config</a></li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.config'); ?>#available-config-methods">Available Config Methods</a></li>
+            </ul>
+        </div>
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="bd-title" id="content">Config</h1>
+            <p class="bd-lead">
+                Config can able to register and retrieves the entire merge configuration.
+            </p>
+
+            <h2 id="config-files">Config Files</h2>
+            <p>JiNexus Framework config files are just simple arrays:</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">return</span> [
+        <span class="no">'key_1'</span> => <span class="no">'value'</span>,
+        <span class="no">'key_2'</span> => <span class="no">'value'</span>,
+    ];
+    </code>
+                </pre>
+            </figure>
+
+            <p>The configuration of the JiNexus Framework core is done in the <span class="gi">config/application.config.php</span> file.</p>
+
+            <div class="alert alert-info" role="alert">
+                <h5 class="alert-heading">Important Note!</h5>
+                <p>
+                    All of the remaining framework configuration is done by editing the per module files that are located in the <span class="gi">module/{Module}/config</span> directory.
+                </p>
+            </div>
+
+            <h2 id="environment-config">Environment Config</h2>
+            <p>These are the list of different config files in the framework</p>
+            <ul>
+                <li><span class="gi">config/application.config.php</span> - Config file for the entire Application</li>
+                <li><span class="gi">config/modules.config.php</span> - Config file for the list of enabled modules for this application</li>
+                <li><span class="gi">module/{Module}/config/modules.config.php</span> - Config file for a certain module</li>
+            </ul>
+
+            <div class="alert alert-info" role="alert">
+                <h5 class="alert-heading">Important Note!</h5>
+                <p>
+                    In <span class="gi">modules.config.php</span> all modules are loaded from top to bottom. And each module configuration are merge to one whole configuration that includes routes, view_manager, etc.
+                    So if there are instances that a similar keys exist in each of your module configuration, please be aware that the latest module may overwrite the previous modules configuration.
+                </p>
+            </div>
+
+            <h2 id="available-config-methods">Available Config Methods</h2>
+            <p>These are the list of available config methods that can be use in the Controller.</p>
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row"><span class="ss">getConfig()</span></td>
+                        <td>Get the entire available config</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">setConfig()</span></td>
+                        <td>Set an entire new config</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">get()</span></td>
+                        <td>Get a config by key or needle and return its value or null if there is no element set</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">set()</span></td>
+                        <td>Set a value in the config provided by its key or needle</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">has()</span></td>
+                        <td>Check if needle exist in the config, return true if found and false if not</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <?php echo $this->render('application/documentation/partial/note'); ?>
+        </main>
+    </div>
+</div>

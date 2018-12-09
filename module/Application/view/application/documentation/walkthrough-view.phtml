@@ -1,0 +1,302 @@
+<main class="bd-masthead keep-calm-and-code-on" id="content" role="main">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-12 mx-auto my-5">
+                <h1 class="mb-3 text-light text-center text-shadow">Documentation</h1>
+            </div>
+        </div>
+    </div>
+    <div class="cover-scrollspy"><i class="fas fa-chevron-down"></i></div>
+</main>
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <?php echo $this->render('application/documentation/partial/main-sidebar'); ?>
+        <div class="d-none d-xl-block col-xl-2 bd-toc">
+            <ul class="section-nav">
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.view'); ?>#view-manager">View Manager</a></li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.view'); ?>#creating-a-template">Creating a Template</a></li>
+                <li class="toc-entry toc-h2">
+                    <a href="<?php echo $this->url('application.documentation.walkthrough.view'); ?>#passing-variables">Passing Variables</a>
+                    <ul>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.walkthrough.view'); ?>#using-view-model">Using ViewModel()</a></li>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.walkthrough.view'); ?>#using-set">Using set()</a></li>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.walkthrough.view'); ?>#using-set-variables">Using setVariables()</a></li>
+                    </ul>
+                </li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.view'); ?>#accessing-variables">Accessing Variables</a></li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.view'); ?>#available-view-methods">Available View Methods</a></li>
+            </ul>
+        </div>
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="bd-title" id="content">View</h1>
+            <p class="bd-lead">
+                Views is where the HTML of your application goes. A view can be an entire web page or just a small section of a page like a header, sidebar, navigation or footer.
+                Using views allows you to separate the presentation and business logic of your application.
+            </p>
+
+            <h2 id="view-manager">View Manager</h2>
+
+            <p>This is our View Manager configuration in <span class="gi">module.config.php</span>. For us to get a better understanding lets have a look on our View Manager configuration.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+        <span class="m">return</span> <span class="o">[</span>
+            <span class="no">'view_manager'</span> <span class="o">=> [</span>
+                <span class="no">'template_map'</span> <span class="o">=> [</span>
+                    <span class="ni">// Location of the layout template</span>
+                    <span class="no">'layout/layout'</span> <span class="o">=></span> <span class="no">'layout/layout.phtml'</span><span class="m">,</span>
+                    <span class="ni">// Location of the 404 template</span>
+                    <span class="no">'error/404'</span> <span class="o">=></span> <span class="no">'error/404.phtml'</span><span class="m">,</span>
+                <span class="o">]</span><span class="m">,</span>
+                <span class="ni">// Where all the view files or templates are located</span>
+                <span class="no">'template_path_stack'</span> <span class="o">=></span> <span class="nd">__DIR__</span> <span class="o">.</span> <span class="no">'/../view'</span><span class="m">,</span>
+            <span class="o">]</span><span class="m">,</span>
+        <span class="o">]</span><span class="m">;</span>
+    </code>
+                </pre>
+            </figure>
+
+            <div class="alert alert-info" role="alert">
+                <h5 class="alert-heading">Important Note!</h5>
+                <p>
+                    Your views must use the <span class="gi">.phtml</span> extension for them to get rendered by the template renderer. This is just a formality used to denote a file that is more HTML dense rather than PHP.
+                </p>
+            </div>
+
+            <h2 id="creating-a-template">Creating a Template</h2>
+            <p>Please note that you have to follow the right structure on creating a template for View to render it properly.</p>
+            <p>Let's have an example below, we have a module <span class="gi">Application</span> and a controller of <span class="gi">AboutController.php</span> with a method of <span class="gi">authorAction()</span></p>
+            <figure class="highlight">
+                <pre>
+                    <code>
+    <span class="nt">application_root/</span>
+        <span class="nt">module/</span>
+            <span class="nt">Application/</span> <span class="ni">// Module</span>
+                <span class="nt">src/</span>
+                    <span class="nt">Controller/</span>
+                        <span class="nt">AboutController.php</span> <span class="ni">// Controller</span>
+                <span class="nt">view/</span>
+                    </code>
+                </pre>
+            </figure>
+
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">namespace</span> <span class="o">namespace Application\Controller</span><span class="m">;</span>
+
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Controller\AbstractController</span><span class="m">;</span>
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Model\ViewModel</span><span class="m">;</span>
+
+    <span class="no"><i>/**</i></span>
+    <span class="no"><i> * Class AboutController</i></span>
+    <span class="no"><i> * <u>@package</u> Application\Controller</i></span>
+    <span class="no"><i> */</i></span>
+    <span class="m">class</span> <span class="o">AboutController</span> <span class="m">extends</span> <span class="o">AbstractController</span>
+    <span class="o">{</span>
+        <span class="no"><i>/**</i></span>
+        <span class="no"><i> * <u>@return</u> ViewModel</i></span>
+        <span class="no"><i> */</i></span>
+        <span class="m">public function</span> <span class="ss">authorAction</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="m">return new</span> <span class="o">ViewModel()</span><span class="m">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    </code>
+                </pre>
+            </figure>
+
+            <p>The above example will have a view structure like this:</p>
+            <figure class="highlight">
+                <pre>
+                    <code>
+    <span class="nt">application_root/</span>
+        <span class="nt">module/</span>
+            <span class="nt">Application/</span> <span class="ni">// Module</span>
+                <span class="nt">src/</span>
+                <span class="nt">view/</span>
+                    <span class="nt">application/</span> <span class="ni">// Module</span>
+                        <span class="nt">about</span> <span class="ni">// Controller</span>
+                            <span class="nt">author.phtml</span> <span class="ni">// Method</span>
+                    </code>
+                </pre>
+            </figure>
+
+            <div class="alert alert-info" role="alert">
+                <h5 class="alert-heading">Important Note!</h5>
+                <p>
+                    All views must be located in the <span class="gi">module/{Module}/view</span> directory. You can of course create subdirectories to better organize your view files.
+                </p>
+            </div>
+
+            <h2 id="passing-variables">Passing variables from Controller to the View</h2>
+            <p>There are three ways to pass variables from Controller to Views.</p>
+            <h4 id="using-view-model">First is using <span class="gi">ViewModel()</span></h4>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">namespace</span> <span class="o">namespace Application\Controller</span><span class="m">;</span>
+
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Controller\AbstractController</span><span class="m">;</span>
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Model\ViewModel</span><span class="m">;</span>
+
+    <span class="no"><i>/**</i></span>
+    <span class="no"><i> * Class IndexController</i></span>
+    <span class="no"><i> * <u>@package</u> Application\Controller</i></span>
+    <span class="no"><i> */</i></span>
+    <span class="m">class</span> <span class="o">IndexController</span> <span class="m">extends</span> <span class="o">AbstractController</span>
+    <span class="o">{</span>
+        <span class="no"><i>/**</i></span>
+        <span class="no"><i> * <u>@return</u> ViewModel</i></span>
+        <span class="no"><i> */</i></span>
+        <span class="m">public function</span> <span class="ss">indexAction</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="ni">// Pass a variable to the view
+            <span class="m">return new</span> <span class="o">ViewModel([</span>
+                <span class="no">'foo'</span> <span class="o">=></span> <span class="no">'Hello'</span><span class="m">,</span>
+                <span class="no">'bar'</span> <span class="o">=></span> <span class="no">'World!'</span><span class="m">,</span>
+            <span class="o">])</span><span class="m">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    </code>
+                </pre>
+            </figure>
+
+            <h4 id="using-set">Second is using <span class="gi">set()</span> method from View</h4>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">namespace</span> <span class="o">namespace Application\Controller</span><span class="m">;</span>
+
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Controller\AbstractController</span><span class="m">;</span>
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Model\ViewModel</span><span class="m">;</span>
+
+    <span class="no"><i>/**</i></span>
+    <span class="no"><i> * Class IndexController</i></span>
+    <span class="no"><i> * <u>@package</u> Application\Controller</i></span>
+    <span class="no"><i> */</i></span>
+    <span class="m">class</span> <span class="o">IndexController</span> <span class="m">extends</span> <span class="o">AbstractController</span>
+    <span class="o">{</span>
+        <span class="no"><i>/**</i></span>
+        <span class="no"><i> * <u>@return</u> ViewModel</i></span>
+        <span class="no"><i> */</i></span>
+        <span class="m">public function</span> <span class="ss">indexAction</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="ni">// Pass a variable to the view</span>
+            <span class="nd">$this</span><span class="o">-></span><span class="nd">view</span><span class="o">-></span><span class="ss">set</span><span class="o">(</span><span class="no">'foo'</span><span class="m">,</span> <span class="no">'Hello'</span><span class="o">)</span><span class="m">;</span>
+            <span class="nd">$this</span><span class="o">-></span><span class="nd">view</span><span class="o">-></span><span class="ss">set</span><span class="o">(</span><span class="no">'bar'</span><span class="m">,</span> <span class="no">'World!'</span><span class="o">)</span><span class="m">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    </code>
+                </pre>
+            </figure>
+
+            <h4 id="using-set-variables">And third is using <span class="gi">setVariables()</span> method from View</h4>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">namespace</span> <span class="o">namespace Application\Controller</span><span class="m">;</span>
+
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Controller\AbstractController</span><span class="m">;</span>
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Model\ViewModel</span><span class="m">;</span>
+
+    <span class="no"><i>/**</i></span>
+    <span class="no"><i> * Class IndexController</i></span>
+    <span class="no"><i> * <u>@package</u> Application\Controller</i></span>
+    <span class="no"><i> */</i></span>
+    <span class="m">class</span> <span class="o">IndexController</span> <span class="m">extends</span> <span class="o">AbstractController</span>
+    <span class="o">{</span>
+        <span class="no"><i>/**</i></span>
+        <span class="no"><i> * <u>@return</u> ViewModel</i></span>
+        <span class="no"><i> */</i></span>
+        <span class="m">public function</span> <span class="ss">indexAction</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="ni">// Pass a variable to the view</span>
+            <span class="nd">$this</span><span class="o">-></span><span class="nd">view</span><span class="o">-></span><span class="ss">setVariables</span><span class="o">([</span>
+                <span class="no">'foo'</span> <span class="o">=></span> <span class="no">'Hello'</span><span class="m">,</span>
+                <span class="no">'bar'</span> <span class="o">=></span> <span class="no">'World!'</span><span class="m">,</span>
+            <span class="o">])</span><span class="m">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    </code>
+                </pre>
+            </figure>
+
+            <h2 id="accessing-variables">Accessing variables from Controller to the View</h2>
+            <p>Accessing variables is very straight forward, see the example below:</p>
+            <figure class="highlight">
+                <pre>
+    <code>
+        <span class="ss">&lt;div&gt;</span>
+            <span class="ss">&lt;p&gt;</span><span class="m">&lt;?php echo</span> <span class="nd">$this</span><span class="o">-></span><span class="nd">foo</span> <span class="o">.</span> <span class="no">' '</span> <span class="o">.</span> <span class="nd">$this</span><span class="o">-></span><span class="nd">bar</span><span class="m">; ?&gt;</span><span class="ss">&lt;/p&gt;</span>
+        <span class="ss">&lt;/div&gt;</span>
+    </code>
+                </pre>
+            </figure>
+
+            <p>The above example will output:</p>
+            <figure class="highlight">
+                <pre>
+    <code>
+        <span class="o">Hello World!</span>
+    </code>
+                </pre>
+            </figure>
+
+            <h2 id="available-view-methods">Available View Methods</h2>
+            <p>These are the list of available view methods that can be use in templates.</p>
+            <table class="table table-hover table-responsive">
+                <thead>
+                    <tr>
+                        <th scope="col">Method</th>
+                        <th scope="col">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row"><span class="ss">basePath()</span></td>
+                        <td>Get the base path of the application</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">baseUrl()</span></td>
+                        <td>Get the base URL of the application</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">content()</span></td>
+                        <td>Render content of the Module, Controller and Method from the match route</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">htmlEncode()</span></td>
+                        <td>Recursively make a value safe for HTML</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">htmlDecode()</span></td>
+                        <td>Recursively decode an HTML encoded value</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">get()</span></td>
+                        <td>Get a view variable</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">set()</span></td>
+                        <td>Set a view variable</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">setVariables()</span></td>
+                        <td>Set all variables</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">render()</span></td>
+                        <td>Render a file</td>
+                    </tr>
+                    <tr>
+                        <td scope="row"><span class="ss">url()</span></td>
+                        <td>Get the URL from routes using a routeName</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <?php echo $this->render('application/documentation/partial/note'); ?>
+        </main>
+    </div>
+</div>

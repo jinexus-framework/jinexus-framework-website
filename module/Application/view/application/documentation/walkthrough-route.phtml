@@ -1,0 +1,94 @@
+<main class="bd-masthead keep-calm-and-code-on" id="content" role="main">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-12 mx-auto my-5">
+                <h1 class="mb-3 text-light text-center text-shadow">Documentation</h1>
+            </div>
+        </div>
+    </div>
+    <div class="cover-scrollspy"><i class="fas fa-chevron-down"></i></div>
+</main>
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <?php echo $this->render('application/documentation/partial/main-sidebar'); ?>
+        <div class="d-none d-xl-block col-xl-2 bd-toc">
+            <ul class="section-nav">
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.route'); ?>#basic-example-of-route">Basic Example of Route</a></li>
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.route'); ?>#route-redirect">Route Redirect</a></li>
+            </ul>
+        </div>
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="bd-title" id="content">Route</h1>
+            <p class="bd-lead">
+                The JiNexus Framework Route lets you map URL patterns towards classes and methods for each module.
+            </p>
+
+            <h2 id="basic-example-of-route">Basic Example of Route</h2>
+            <p>Here's a basic example about our routing system.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">namespace</span> <span class="o">namespace Application</span><span class="m">;</span>
+
+    <span class="m">use</span> <span class="o">Application\Controller\IndexController</span><span class="m">;</span>
+
+    <span class="m">return</span> <span class="o">[</span>
+        <span class="no">'routes'</span> <span class="o">=> [</span>
+            <span class="no">'application.home'</span> <span class="o">=> [</span> <span class="ni">// Route name</span>
+                <span class="no">'options'</span> <span class="o">=> [</span>
+                    <span class="no">'route'</span> <span class="o">=></span> <span class="no">'/'</span><span class="m">,</span> <span class="ni">// Route URI</span>
+                    <span class="no">'controller'</span> <span class="o">=></span> <span class="o">IndexController::</span><span class="m">class,</span> <span class="ni">// Controller to dispatch</span>
+                    <span class="no">'action'</span> <span class="o">=></span> <span class="no">'index'</span> <span class="ni">// Method to dispatch</span>
+                <span class="o">]</span><span class="m">,</span>
+            <span class="o">]</span><span class="m">,</span>
+        <span class="o">]</span>
+    <span class="o">]</span><span class="m">;</span>
+    </code>
+                </pre>
+            </figure>
+
+            <p>Routes are registered in the <span class="gi">module/{Module}/config/module.config.php</span>.</p>
+
+            <h2 id="route-redirect">Route Redirect</h2>
+            <p>You can simply redirect to another route using the command below. You only have to provide the route name of the route that you want to be redirected.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+    <span class="m">namespace</span> <span class="o">namespace Application\Controller</span><span class="m">;</span>
+
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Controller\AbstractController</span><span class="m">;</span>
+    <span class="m">use</span> <span class="o">JiNexus\Mvc\Model\ViewModel</span><span class="m">;</span>
+
+    <span class="no"><i>/**</i></span>
+    <span class="no"><i> * Class IndexController</i></span>
+    <span class="no"><i> * <u>@package</u> Application\Controller</i></span>
+    <span class="no"><i> */</i></span>
+    <span class="m">class</span> <span class="o">IndexController</span> <span class="m">extends</span> <span class="o">AbstractController</span>
+    <span class="o">{</span>
+        <span class="no"><i>/**</i></span>
+        <span class="no"><i> * <u>@return</u> ViewModel</i></span>
+        <span class="no"><i> */</i></span>
+        <span class="m">public function</span> <span class="ss">indexAction</span><span class="o">()</span>
+        <span class="o">{</span>
+            <span class="nd">$this</span><span class="o">-></span><span class="nd">redirect</span><span class="o">-></span><span class="ss">toRoute</span><span class="o">(</span><span class="no">'application.about.author'</span><span class="o">)</span><span class="m">;</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+    </code>
+                </pre>
+            </figure>
+
+            <p>Or if you want to redirect permanently, you can turn the second argument to true.</p>
+            <figure class="highlight">
+                <pre>
+    <code class="language-php" data-lang="php">
+            <span class="nd">$this</span><span class="o">-></span><span class="nd">redirect</span><span class="o">-></span><span class="ss">toRoute</span><span class="o">(</span><span class="no">'application.about.author'</span><span class="m">, true</span><span class="o">)</span><span class="m">;</span>
+    </code>
+                </pre>
+            </figure>
+
+            <p>As you can see the route system is very straight forward and simple. Each route has its own route name, a corresponding URI, and a controller and method to dispatch.</p>
+
+            <?php echo $this->render('application/documentation/partial/note'); ?>
+        </main>
+    </div>
+</div>

@@ -1,0 +1,55 @@
+<main class="bd-masthead keep-calm-and-code-on" id="content" role="main">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-12 col-md-12 mx-auto my-5">
+                <h1 class="mb-3 text-light text-center text-shadow">Documentation</h1>
+            </div>
+        </div>
+    </div>
+    <div class="cover-scrollspy"><i class="fas fa-chevron-down"></i></div>
+</main>
+<div class="container-fluid">
+    <div class="row flex-xl-nowrap">
+        <?php echo $this->render('application/documentation/partial/main-sidebar'); ?>
+        <div class="d-none d-xl-block col-xl-2 bd-toc">
+            <ul class="section-nav">
+                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.walkthrough.introduction'); ?>#application-structure">Application Structure</a></li>
+            </ul>
+        </div>
+        <main class="col-12 col-md-9 col-xl-8 py-md-3 pl-md-5 bd-content" role="main">
+            <h1 class="bd-title" id="content">Introduction</h1>
+            <p class="bd-lead">
+                JiNexus MVC is a design pattern layer for JiNexus Framework which focuses on modularity and performance that separates business logic and presentation.
+            </p>
+            <p>The MVC layer is built on top of the following components:</p>
+            <ul>
+                <li>Module Manager - load the modules and merge the configuration</li>
+                <li>Config - register and retrieves the merge configuration.</li>
+                <li>Route - provides routing of a request. It matches the request to its respective controller to dispatch</li>
+                <li>HTTP Request - provides an object oriented interface to global variables such as $_GET, $_POST, $_FILES, $_COOKIE and $_SERVER as well as easy access to other useful request information.</li>
+            </ul>
+
+            <h2 id="application-structure">Application Structure</h2>
+            <p>Below is the basic application structure:</p>
+            <figure class="highlight">
+                <pre>
+                    <code>
+    <span class="nt">application_root/</span>
+        <span class="nt">config/</span>
+            <span class="nt">application.config.php</span>
+            <span class="nt">modules.config.php</span>
+        <span class="nt">data/</span>
+        <span class="nt">module/</span>
+        <span class="nt">public/</span>
+            <span class="nt">asset/</span>
+            <span class="nt">.htaccess</span>
+            <span class="nt">index.php</span>
+        <span class="nt">vendor/</span>
+                    </code>
+                </pre>
+            </figure>
+
+            <?php echo $this->render('application/documentation/partial/note'); ?>
+        </main>
+    </div>
+</div>

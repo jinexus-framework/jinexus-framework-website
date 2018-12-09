@@ -10,16 +10,18 @@
 </main>
 <div class="container-fluid">
     <div class="row flex-xl-nowrap">
-        <?php echo $this->render('layout/partial/main-sidebar'); ?>
+        <?php echo $this->render('application/documentation/partial/main-sidebar'); ?>
         <div class="d-none d-xl-block col-xl-2 bd-toc">
             <ul class="section-nav">
                 <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#system-requirements">System Requirements</a></li>
                 <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#setup">Setup</a></li>
-                <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#start-web-server">Start a Web Server</a></li>
-                <ul>
-                    <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#using-composer">Using Composer</a></li>
-                    <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#using-php">Using PHP</a></li>
-                </ul>
+                <li class="toc-entry toc-h2">
+                    <a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#start-web-server">Start a Web Server</a>
+                    <ul>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#using-composer">Using Composer</a></li>
+                        <li class="toc-entry toc-h3"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#using-php">Using PHP</a></li>
+                    </ul>
+                </li>
                 <li class="toc-entry toc-h2"><a href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>#app-overview">App Overview</a></li>
             </ul>
         </div>

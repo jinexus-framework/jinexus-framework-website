@@ -15,7 +15,7 @@ class AboutController extends AbstractController
      */
     public function indexAction()
     {
-        $this->redirect->toRoute('application.about.author');
+        $this->redirect->toRoute('application.about.author', true);
     }
 
     public function authorAction()

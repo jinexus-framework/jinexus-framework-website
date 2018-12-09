@@ -22,6 +22,13 @@ return [
                 'action' => 'index',
             ],
         ],
+        'application.documentation.getting-started' => [
+            'options' => [
+                'route' => '/documentation/getting-started',
+                'controller' => DocumentationController::class,
+                'action' => 'gettingStarted',
+            ],
+        ],
         'application.documentation.getting-started.introduction' => [
             'options' => [
                 'route' => '/documentation/getting-started/introduction',
@@ -41,6 +48,55 @@ return [
                 'route' => '/documentation/walkthrough',
                 'controller' => DocumentationController::class,
                 'action' => 'walkthrough',
+            ],
+        ],
+        'application.documentation.walkthrough.introduction' => [
+            'options' => [
+                'route' => '/documentation/walkthrough/introduction',
+                'controller' => DocumentationController::class,
+                'action' => 'walkthroughIntroduction',
+            ],
+        ],
+        'application.documentation.walkthrough.module-manager' => [
+            'options' => [
+                'route' => '/documentation/walkthrough/module-manager',
+                'controller' => DocumentationController::class,
+                'action' => 'walkthroughModuleManager',
+            ],
+        ],
+        'application.documentation.walkthrough.controller' => [
+            'options' => [
+                'route' => '/documentation/walkthrough/controller',
+                'controller' => DocumentationController::class,
+                'action' => 'walkthroughController',
+            ],
+        ],
+        'application.documentation.walkthrough.route' => [
+            'options' => [
+                'route' => '/documentation/walkthrough/route',
+                'controller' => DocumentationController::class,
+                'action' => 'walkthroughRoute',
+            ],
+        ],
+        'application.documentation.walkthrough.http-request' => [
+            'options' => [
+                'route' => '/documentation/walkthrough/http-request',
+                'controller' => DocumentationController::class,
+                'action' => 'walkthroughHttpRequest',
+            ],
+        ],
+        'application.documentation.walkthrough.view' => [
+            'options' => [
+                'route' => '/documentation/walkthrough/view',
+                'controller' => DocumentationController::class,
+                'action' => 'walkthroughView',
+            ],
+        ],
+        'application.documentation.walkthrough.config' => [
+            'options' => [
+                'route' => '/documentation/walkthrough/config',
+                'controller' => DocumentationController::class,
+                'action' => 'walkthroughConfig',
             ],
         ],
         'application.changelog' => [
