@@ -110,7 +110,7 @@ body{
     background-color: #4882C3;
     position: absolute;
     z-index: 10;
-    margin-top: 500px;
+    top: 472px;
     border-radius: 50px;
     color: #FFFFFF;
     display: flex;

@@ -11,12 +11,12 @@ const Core = (function($) {
         $(document).ready(function() { });
 
         $(window).on('load', function() {
-            let mainMasthead = $('main.bd-masthead').outerHeight();
+            let mainMasthead = $('main.bd-masthead').outerHeight() - 28;
 
-            $('.cover-scrollspy').css({'margin-top': mainMasthead + 'px'});
+            $('.cover-scrollspy').css({'top': mainMasthead + 'px'});
             $(document).on('click', '.cover-scrollspy', function() {
                 $('html, body').animate({
-                    scrollTop: mainMasthead
+                    scrollTop: mainMasthead + 28
                 });
             });
         });
