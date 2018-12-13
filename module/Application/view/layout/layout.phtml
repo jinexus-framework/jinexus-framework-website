@@ -1,10 +1,24 @@
 <!DOCTYPE html>
 <html lang="en">
     <head>
-        <title>JiNexus Framework</title>
+        <title><?php echo $this->title ? $this->title : 'JiNexus Framework'; ?></title>
         <meta charset="utf-8" />
+        <?php if (isset($this->meta['description']) && $this->meta['description']) : ?>
+            <meta name="description" content="<?php echo $this->meta['description']; ?>">
+        <?php endif; ?>
+        <meta name="keywords" content="jinexus, jinexus framework, php, php framework, lightweight php framework, fastest php framework">
+        <meta name="author" content="Jimvirle Calago">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <?php if (isset($this->meta['og']['url']) && $this->meta['og']['url']) : ?>
+        <meta property="og:url" content="<?php echo $this->meta['og']['url']; ?>" />
+        <?php endif; ?>
+        <meta property="og:title" content="<?php echo $this->title ? $this->title : 'JiNexus Framework'; ?>" />
+        <meta property="og:description" content="<?php echo $this->meta['og']['description'] ? $this->meta['og']['description'] : $this->meta['description']; ?>" />
+        <?php if (isset($this->meta['og']['image']) && $this->meta['og']['image']) : ?>
+            <meta property="og:image" content="<?php echo $this->meta['og']['image']; ?>" />
+        <?php endif; ?>
+        <meta property="og:type" content="website" />
         <link href="<?php echo $this->basePath('asset/img/favicon.ico'); ?>" rel="shortcut icon" type="image/x-icon" />
         <link href="<?php echo $this->basePath('asset/lib/normalize/8.0.0/normalize.css'); ?>" media="screen" rel="stylesheet" type="text/css" />
         <link href="<?php echo $this->basePath('asset/lib/bootstrap/4.0.0/css/bootstrap.min.css'); ?>" media="screen" rel="stylesheet" type="text/css" />
