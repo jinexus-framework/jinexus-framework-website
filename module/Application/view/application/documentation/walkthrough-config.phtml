@@ -96,6 +96,18 @@
             </table>
 
             <?php echo $this->render('application/documentation/partial/note'); ?>
+
+            <hr>
+            <nav aria-label="Documentation Navigation">
+                <ul class="pagination d-inline-block float-left">
+                    <li class="page-item">
+                        <a class="page-link" href="<?php echo $this->url('application.documentation.walkthrough.view'); ?>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span>Previous</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </main>
     </div>
 </div>

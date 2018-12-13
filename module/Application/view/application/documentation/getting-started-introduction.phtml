@@ -100,6 +100,18 @@
             </ul>
 
             <?php echo $this->render('application/documentation/partial/note'); ?>
+
+            <hr>
+            <nav aria-label="Documentation Navigation">
+                <ul class="pagination d-inline-block float-right">
+                    <li class="page-item">
+                        <a class="page-link" href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>" aria-label="Next">
+                            <span>Next</span>
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </main>
     </div>
 </div>

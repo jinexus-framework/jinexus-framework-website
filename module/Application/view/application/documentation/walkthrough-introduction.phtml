@@ -50,6 +50,26 @@
             </figure>
 
             <?php echo $this->render('application/documentation/partial/note'); ?>
+
+            <hr>
+            <nav aria-label="Documentation Navigation">
+                <ul class="pagination d-inline-block float-left">
+                    <li class="page-item">
+                        <a class="page-link" href="<?php echo $this->url('application.documentation.getting-started.installation'); ?>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span>Previous</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="pagination d-inline-block float-right">
+                    <li class="page-item">
+                        <a class="page-link" href="<?php echo $this->url('application.documentation.walkthrough.module-manager'); ?>" aria-label="Next">
+                            <span>Next</span>
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </main>
     </div>
 </div>

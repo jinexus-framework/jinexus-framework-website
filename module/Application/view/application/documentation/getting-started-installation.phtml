@@ -89,6 +89,26 @@
             <img src="<?php echo $this->basePath('asset/img/app-overview.png'); ?>" class="img-fluid img-thumbnail rounded mx-auto d-block" alt="App Overview">
 
             <?php echo $this->render('application/documentation/partial/note'); ?>
+
+            <hr>
+            <nav aria-label="Documentation Navigation">
+                <ul class="pagination d-inline-block float-left">
+                    <li class="page-item">
+                        <a class="page-link" href="<?php echo $this->url('application.documentation.getting-started.introduction'); ?>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span>Previous</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="pagination d-inline-block float-right">
+                    <li class="page-item">
+                        <a class="page-link" href="<?php echo $this->url('application.documentation.walkthrough.introduction'); ?>" aria-label="Next">
+                            <span>Next</span>
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </main>
     </div>
 </div>

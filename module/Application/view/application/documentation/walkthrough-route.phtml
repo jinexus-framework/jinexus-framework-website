@@ -87,6 +87,26 @@
             <p>As you can see the route system is very straight forward and simple. Each route has its own route name, a corresponding URI, and a controller and method to dispatch.</p>
 
             <?php echo $this->render('application/documentation/partial/note'); ?>
+
+            <hr>
+            <nav aria-label="Documentation Navigation">
+                <ul class="pagination d-inline-block float-left">
+                    <li class="page-item">
+                        <a class="page-link" href="<?php echo $this->url('application.documentation.walkthrough.controller'); ?>" aria-label="Previous">
+                            <span aria-hidden="true">&laquo;</span>
+                            <span>Previous</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="pagination d-inline-block float-right">
+                    <li class="page-item">
+                        <a class="page-link" href="<?php echo $this->url('application.documentation.walkthrough.http-request'); ?>" aria-label="Next">
+                            <span>Next</span>
+                            <span aria-hidden="true">&raquo;</span>
+                        </a>
+                    </li>
+                </ul>
+            </nav>
         </main>
     </div>
 </div>
