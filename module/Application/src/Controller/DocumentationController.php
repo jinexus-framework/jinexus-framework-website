@@ -28,10 +28,22 @@ class DocumentationController extends AbstractController
 
     /**
      * @return ViewModel
+     * @throws \JiNexus\Route\Exception
      */
     public function gettingStartedIntroductionAction()
     {
+        $request = $this->http->getRequest();
+
         return new ViewModel([
+            'title' => 'Documentation - JiNexus Framework',
+            'meta' => [
+                'description' => 'A modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework',
+                'og' => [
+                    'url' => $request->baseUrl() . $this->view->url('application.documentation.getting-started.introduction'),
+                    'description' => 'Go and get started to explore our docs',
+                    'image' => $request->baseUrl() . $this->view->basePath('asset/img/cover-photo/jinexus-framework-documentation-cover.png'),
+                ],
+            ],
             'mainSidebar' => [
                 'active' => ['getting-started', 'introduction'],
             ]
@@ -40,10 +52,22 @@ class DocumentationController extends AbstractController
 
     /**
      * @return ViewModel
+     * @throws \JiNexus\Route\Exception
      */
     public function gettingStartedInstallationAction()
     {
+        $request = $this->http->getRequest();
+
         return new ViewModel([
+            'title' => 'Documentation - JiNexus Framework',
+            'meta' => [
+                'description' => 'A modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework',
+                'og' => [
+                    'url' => $request->baseUrl() . $this->view->url('application.documentation.getting-started.installation'),
+                    'description' => 'Go and get started to explore our docs',
+                    'image' => $request->baseUrl() . $this->view->basePath('asset/img/cover-photo/jinexus-framework-documentation-cover.png'),
+                ],
+            ],
             'mainSidebar' => [
                 'active' => ['getting-started', 'installation']
             ]
@@ -60,10 +84,22 @@ class DocumentationController extends AbstractController
 
     /**
      * @return ViewModel
+     * @throws \JiNexus\Route\Exception
      */
     public function walkthroughIntroductionAction()
     {
+        $request = $this->http->getRequest();
+
         return new ViewModel([
+            'title' => 'Documentation - JiNexus Framework',
+            'meta' => [
+                'description' => 'A modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework',
+                'og' => [
+                    'url' => $request->baseUrl() . $this->view->url('application.documentation.walkthrough.introduction'),
+                    'description' => 'Go and get started to explore our docs',
+                    'image' => $request->baseUrl() . $this->view->basePath('asset/img/cover-photo/jinexus-framework-documentation-cover.png'),
+                ],
+            ],
             'mainSidebar' => [
                 'active' => ['walkthrough', 'introduction'],
             ]
@@ -72,10 +108,22 @@ class DocumentationController extends AbstractController
 
     /**
      * @return ViewModel
+     * @throws \JiNexus\Route\Exception
      */
     public function walkthroughModuleManagerAction()
     {
+        $request = $this->http->getRequest();
+
         return new ViewModel([
+            'title' => 'Documentation - JiNexus Framework',
+            'meta' => [
+                'description' => 'A modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework',
+                'og' => [
+                    'url' => $request->baseUrl() . $this->view->url('application.documentation.walkthrough.module-manager'),
+                    'description' => 'Go and get started to explore our docs',
+                    'image' => $request->baseUrl() . $this->view->basePath('asset/img/cover-photo/jinexus-framework-documentation-cover.png'),
+                ],
+            ],
             'mainSidebar' => [
                 'active' => ['walkthrough', 'module-manager'],
             ]
@@ -84,10 +132,22 @@ class DocumentationController extends AbstractController
 
     /**
      * @return ViewModel
+     * @throws \JiNexus\Route\Exception
      */
     public function walkthroughControllerAction()
     {
+        $request = $this->http->getRequest();
+
         return new ViewModel([
+            'title' => 'Documentation - JiNexus Framework',
+            'meta' => [
+                'description' => 'A modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework',
+                'og' => [
+                    'url' => $request->baseUrl() . $this->view->url('application.documentation.walkthrough.controller'),
+                    'description' => 'Go and get started to explore our docs',
+                    'image' => $request->baseUrl() . $this->view->basePath('asset/img/cover-photo/jinexus-framework-documentation-cover.png'),
+                ],
+            ],
             'mainSidebar' => [
                 'active' => ['walkthrough', 'controller'],
             ]
@@ -96,10 +156,22 @@ class DocumentationController extends AbstractController
 
     /**
      * @return ViewModel
+     * @throws \JiNexus\Route\Exception
      */
     public function walkthroughRouteAction()
     {
+        $request = $this->http->getRequest();
+
         return new ViewModel([
+            'title' => 'Documentation - JiNexus Framework',
+            'meta' => [
+                'description' => 'A modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework',
+                'og' => [
+                    'url' => $request->baseUrl() . $this->view->url('application.documentation.walkthrough.route'),
+                    'description' => 'Go and get started to explore our docs',
+                    'image' => $request->baseUrl() . $this->view->basePath('asset/img/cover-photo/jinexus-framework-documentation-cover.png'),
+                ],
+            ],
             'mainSidebar' => [
                 'active' => ['walkthrough', 'route'],
             ]
@@ -108,10 +180,22 @@ class DocumentationController extends AbstractController
 
     /**
      * @return ViewModel
+     * @throws \JiNexus\Route\Exception
      */
     public function walkthroughHttpRequestAction()
     {
+        $request = $this->http->getRequest();
+
         return new ViewModel([
+            'title' => 'Documentation - JiNexus Framework',
+            'meta' => [
+                'description' => 'A modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework',
+                'og' => [
+                    'url' => $request->baseUrl() . $this->view->url('application.documentation.walkthrough.http-request'),
+                    'description' => 'Go and get started to explore our docs',
+                    'image' => $request->baseUrl() . $this->view->basePath('asset/img/cover-photo/jinexus-framework-documentation-cover.png'),
+                ],
+            ],
             'mainSidebar' => [
                 'active' => ['walkthrough', 'http-request'],
             ]
@@ -120,10 +204,22 @@ class DocumentationController extends AbstractController
 
     /**
      * @return ViewModel
+     * @throws \JiNexus\Route\Exception
      */
     public function walkthroughViewAction()
     {
+        $request = $this->http->getRequest();
+
         return new ViewModel([
+            'title' => 'Documentation - JiNexus Framework',
+            'meta' => [
+                'description' => 'A modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework',
+                'og' => [
+                    'url' => $request->baseUrl() . $this->view->url('application.documentation.walkthrough.view'),
+                    'description' => 'Go and get started to explore our docs',
+                    'image' => $request->baseUrl() . $this->view->basePath('asset/img/cover-photo/jinexus-framework-documentation-cover.png'),
+                ],
+            ],
             'mainSidebar' => [
                 'active' => ['walkthrough', 'view'],
             ]
@@ -132,10 +228,22 @@ class DocumentationController extends AbstractController
 
     /**
      * @return ViewModel
+     * @throws \JiNexus\Route\Exception
      */
     public function walkthroughConfigAction()
     {
+        $request = $this->http->getRequest();
+
         return new ViewModel([
+            'title' => 'Documentation - JiNexus Framework',
+            'meta' => [
+                'description' => 'A modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework',
+                'og' => [
+                    'url' => $request->baseUrl() . $this->view->url('application.documentation.walkthrough.config'),
+                    'description' => 'Go and get started to explore our docs',
+                    'image' => $request->baseUrl() . $this->view->basePath('asset/img/cover-photo/jinexus-framework-documentation-cover.png'),
+                ],
+            ],
             'mainSidebar' => [
                 'active' => ['walkthrough', 'config'],
             ]
