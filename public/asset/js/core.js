@@ -5,13 +5,13 @@
  */
 
 const Core = (function($) {
-    let init;
+    let init, mainMasthead;
 
     init = function() {
         $(document).ready(function() { });
 
         $(window).on('load', function() {
-            let mainMasthead = $('main.bd-masthead').outerHeight() - 28;
+            mainMasthead = $('main.bd-masthead').outerHeight() - 28;
 
             $('.cover-scrollspy').css({'top': mainMasthead + 'px'});
             $(document).on('click', '.cover-scrollspy', function() {
@@ -19,6 +19,12 @@ const Core = (function($) {
                     scrollTop: mainMasthead + 28
                 });
             });
+        });
+
+        $(window).on('resize', function() {
+            mainMasthead = $('main.bd-masthead').outerHeight() - 28;
+
+            $('.cover-scrollspy').css({'top': mainMasthead + 'px'});
         });
     };
 
