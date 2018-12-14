@@ -29,7 +29,7 @@ class AboutController extends AbstractController
         return new ViewModel([
             'title' => 'Author - JiNexus Framework',
             'meta' => [
-                'description' => 'A modular, lightweight and easy to use PHP framework and probably the smallest and fastest MVC framework',
+                'description' => 'The fact that I don\'t believe that I\'m better than anyone else gives me an inevitable sense of superiority',
                 'og' => [
                     'url' => $request->baseUrl() . $this->view->url('application.about.author'),
                     'description' => 'DevOps (Development and Operations) with a focus on PHP web applications and cloud-based Ubuntu servers',
